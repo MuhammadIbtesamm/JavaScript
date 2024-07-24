@@ -50,9 +50,32 @@ getData(1, () => {
 
 
 //Promises (Solution of a Callback Hell)
-function getDataPromise(dataId){
+//pending, fullfilled, rejected
+
+
+//RESOLVE
+const getPromise = () => {
     return new Promise((resolve, reject) => {
-        console.log("Data ", dataId);
-        resolve();
+        console.log("I'm a Promise");
+        resolve("Success");
     });
-}
+};
+
+let promise = getPromise();
+promise.then(() => {
+    console.log("Promise fullfilled");
+});
+
+
+//REJECT
+const getAnotherPromise = () => {
+    return new Promise((resolve, reject) => {
+        console.log("I'm a Promise");
+        reject("Error");
+    });
+};
+
+let anotherPromise = getAnotherPromise();
+promise.catch(() => {
+    console.log("Rejected");
+});
